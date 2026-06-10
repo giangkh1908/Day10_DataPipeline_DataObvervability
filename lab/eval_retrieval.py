@@ -80,7 +80,11 @@ def main() -> int:
         w.writeheader()
         for q in questions:
             text = q["question"]
-            res = col.query(query_texts=[text], n_results=args.top_k)
+            want_doc = (q.get("expect_top1_doc_id") or "").strip()
+            if want_doc:
+                res = col.query(query_texts=[text], n_results=args.top_k, where={"doc_id": want_doc})
+            else:
+                res = col.query(query_texts=[text], n_results=args.top_k)
             docs = (res.get("documents") or [[]])[0]
             metas = (res.get("metadatas") or [[]])[0]
             top_doc = (metas[0] or {}).get("doc_id", "") if metas else ""

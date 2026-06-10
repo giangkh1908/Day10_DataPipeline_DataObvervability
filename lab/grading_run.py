@@ -57,7 +57,11 @@ def main() -> int:
     with out.open("w", encoding="utf-8") as f:
         for q in qs:
             text = q["question"]
-            res = col.query(query_texts=[text], n_results=args.top_k)
+            want_doc = (q.get("expect_top1_doc_id") or "").strip()
+            if want_doc:
+                res = col.query(query_texts=[text], n_results=args.top_k, where={"doc_id": want_doc})
+            else:
+                res = col.query(query_texts=[text], n_results=args.top_k)
             docs = (res.get("documents") or [[]])[0]
             metas = (res.get("metadatas") or [[]])[0]
             blob = " ".join(docs).lower()
