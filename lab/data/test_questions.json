@@ -1,0 +1,236 @@
+[
+  {
+    "id": "q_refund_window",
+    "question": "Khách hàng có bao nhiêu ngày để yêu cầu hoàn tiền kể từ khi đơn được xác nhận?",
+    "must_contain_any": [
+      "7 ngày",
+      "7 ngày làm việc"
+    ],
+    "must_not_contain": [
+      "14 ngày",
+      "14 ngày làm việc"
+    ],
+    "expect_top1_doc_id": "policy_refund_v4",
+    "note": "Kiểm tra chính sách refund hiện hành và loại bỏ chunk stale 14 ngày"
+  },
+  {
+    "id": "q_refund_exception_digital",
+    "question": "Sản phẩm nào không được hoàn tiền theo chính sách refund nội bộ?",
+    "must_contain_any": [
+      "hàng kỹ thuật số",
+      "license key",
+      "subscription"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "policy_refund_v4",
+    "note": "Kiểm tra nội dung ngoại trừ của chính sách hoàn tiền"
+  },
+  {
+    "id": "q_refund_process_confirm",
+    "question": "Sau khi khách gửi yêu cầu hoàn tiền, CS Agent cần xác nhận trong vòng bao lâu?",
+    "must_contain_any": [
+      "1 ngày làm việc",
+      "1 ngày"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "policy_refund_v4",
+    "note": "Đo thông tin quy trình xử lý refund"
+  },
+  {
+    "id": "q_refund_finance_timeline",
+    "question": "Finance Team xử lý yêu cầu hoàn tiền trong bao lâu?",
+    "must_contain_any": [
+      "3-5 ngày làm việc",
+      "3 đến 5 ngày"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "policy_refund_v4",
+    "note": "Kiểm tra chi tiết timeline xử lý refund"
+  },
+  {
+    "id": "q_refund_contact",
+    "question": "Email liên hệ nội bộ cho chính sách hoàn tiền là gì?",
+    "must_contain_any": [
+      "cs-refund@company.internal"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "policy_refund_v4",
+    "note": "Đảm bảo câu trả lời từ đúng document refund"
+  },
+  {
+    "id": "q_p1_first_response",
+    "question": "SLA phản hồi đầu tiên cho ticket P1 được cam kết là trong bao lâu?",
+    "must_contain_any": [
+      "15 phút",
+      "15p"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "sla_p1_2026",
+    "note": "Kiểm tra time-to-first-response của P1"
+  },
+  {
+    "id": "q_p1_resolution",
+    "question": "SLA resolution cho ticket P1 trong chính sách là bao nhiêu giờ?",
+    "must_contain_any": [
+      "4 giờ",
+      "4h"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "sla_p1_2026",
+    "note": "Đo thời gian sửa chữa P1"
+  },
+  {
+    "id": "q_p1_escalation",
+    "question": "Nếu không có phản hồi với ticket P1 sau bao lâu, hệ thống tự động escalate?",
+    "must_contain_any": [
+      "10 phút"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "sla_p1_2026",
+    "note": "Kiểm tra thông tin escalation P1"
+  },
+  {
+    "id": "q_p1_update_frequency",
+    "question": "Trong sự cố P1, thông tin tiến độ cần được cập nhật mỗi bao lâu?",
+    "must_contain_any": [
+      "30 phút",
+      "30p"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "sla_p1_2026",
+    "note": "Đo tần suất cập nhật khi xử lý P1"
+  },
+  {
+    "id": "q_p1_alert_channel",
+    "question": "Kênh Slack nào được dùng để thông báo sự cố P1?",
+    "must_contain_any": [
+      "#incident-p1"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "sla_p1_2026",
+    "note": "Kiểm tra thông tin kênh liên lạc P1"
+  },
+  {
+    "id": "q_lockout",
+    "question": "Tài khoản sẽ bị khóa sau bao nhiêu lần đăng nhập sai liên tiếp?",
+    "must_contain_any": [
+      "5 lần"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "it_helpdesk_faq",
+    "note": "Đảm bảo top-1 document là IT helpdesk FAQ"
+  },
+  {
+    "id": "q_password_rotation",
+    "question": "Mật khẩu cần được thay đổi định kỳ sau bao lâu?",
+    "must_contain_any": [
+      "90 ngày"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "it_helpdesk_faq",
+    "note": "Kiểm tra chính sách thay đổi mật khẩu"
+  },
+  {
+    "id": "q_password_reset_time",
+    "question": "Sau khi quên mật khẩu, bạn sẽ nhận mật khẩu mới qua email trong bao lâu?",
+    "must_contain_any": [
+      "5 phút",
+      "5p"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "it_helpdesk_faq",
+    "note": "Đo SLA reset mật khẩu"
+  },
+  {
+    "id": "q_vpn_client_limit",
+    "question": "VPN được phép kết nối tối đa bao nhiêu thiết bị cùng lúc?",
+    "must_contain_any": [
+      "2 thiết bị",
+      "2 device",
+      "2"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "it_helpdesk_faq",
+    "note": "Kiểm tra giới hạn VPN"
+  },
+  {
+    "id": "q_email_quota",
+    "question": "Dung lượng hộp thư tiêu chuẩn là bao nhiêu GB?",
+    "must_contain_any": [
+      "50GB",
+      "50 GB"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "it_helpdesk_faq",
+    "note": "Kiểm tra thông tin email"
+  },
+  {
+    "id": "q_hr_annual_leave_under3",
+    "question": "Nhân viên dưới 3 năm kinh nghiệm được bao nhiêu ngày phép năm?",
+    "must_contain_any": [
+      "12 ngày",
+      "12 ngày phép năm"
+    ],
+    "must_not_contain": [
+      "10 ngày phép năm",
+      "10 ngày phép"
+    ],
+    "expect_top1_doc_id": "hr_leave_policy",
+    "note": "Đảm bảo lựa chọn bản HR 2026, không nhầm với nghỉ ốm 10 ngày/năm"
+  },
+  {
+    "id": "q_hr_annual_leave_3_5",
+    "question": "Nhân viên có kinh nghiệm từ 3 đến 5 năm được bao nhiêu ngày phép năm?",
+    "must_contain_any": [
+      "15 ngày",
+      "15 ngày phép năm"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "hr_leave_policy",
+    "note": "Kiểm tra quy định phép theo thâm niên"
+  },
+  {
+    "id": "q_hr_annual_leave_over5",
+    "question": "Nhân viên trên 5 năm kinh nghiệm được bao nhiêu ngày phép năm?",
+    "must_contain_any": [
+      "18 ngày",
+      "18 ngày phép năm"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "hr_leave_policy",
+    "note": "Chứa câu hỏi về cấp phép cao hơn"
+  },
+  {
+    "id": "q_hr_sick_leave",
+    "question": "Số ngày nghỉ ốm có trả lương là bao nhiêu?",
+    "must_contain_any": [
+      "10 ngày",
+      "10 ngày/năm"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "hr_leave_policy",
+    "note": "Đo chính sách nghỉ ốm"
+  },
+  {
+    "id": "q_access_level4",
+    "question": "Level 4 Admin Access yêu cầu phê duyệt bởi ai?",
+    "must_contain_any": [
+      "IT Manager",
+      "CISO"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "access_control_sop",
+    "note": "Kiểm tra yêu cầu cấp quyền cao nhất"
+  },
+  {
+    "id": "q_access_level2_turnaround",
+    "question": "Thời gian xử lý cấp quyền Standard Access là bao lâu?",
+    "must_contain_any": [
+      "2 ngày làm việc",
+      "2 ngày"
+    ],
+    "must_not_contain": [],
+    "expect_top1_doc_id": "access_control_sop",
+    "note": "Đo thời gian xử lý cấp quyền chuẩn"
+  }
+]
